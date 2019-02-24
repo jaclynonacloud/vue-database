@@ -795,7 +795,7 @@ methods: {
 
     /**Adds a route to the routes table. */
     addRoute(lookup, route) {
-        let handle = "http://localhost:4000/routes/add"
+        let handle = "https://js-v-database.herokuapp.com/routes/add"
         this.axios.post(handle, {lookup, route})
             .then(() => {
                 // eslint-disable-next-line

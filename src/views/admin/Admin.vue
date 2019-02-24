@@ -24,7 +24,7 @@ export default {
     },
     created() {
         //go get data
-        let route = 'http://localhost:4000/characters';
+        let route = 'https://js-v-database.herokuapp.com/characters';
         this.axios.get(route).then(response => {
             // eslint-disable-next-line
             console.log(response.data)
