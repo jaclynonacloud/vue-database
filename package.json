@@ -7,15 +7,18 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "nodemon": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "main": "node src/server.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
+    "d": "^1.0.0",
     "express": "^4.16.4",
     "fs": "^0.0.1-security",
     "global": "^4.3.2",
+    "mongo": "^0.1.0",
     "mongoose": "^5.4.11",
     "path": "^0.12.7",
     "vue": "^2.5.22",
