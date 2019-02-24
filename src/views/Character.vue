@@ -411,30 +411,6 @@ methods: {
 
         })
         
-
-
-        // if(this.lookup != '' && this.lookup != null) {
-        //     this.character = null
-        //     //go get data
-        //     let route = `http://localhost:4000/characters/${this.lookup}`
-        //     this.axios.get(route).then(response => {
-        //         this.character = response.data
-
-        //         //pre-compile editor data
-        //         this.character.description = `<div>${this.character.description}</div>`
-        //         this.character.history = `<div>${this.character.history}</div>`
-        //         this.character.characteristics = `<div>${this.character.characteristics}</div>`
-
-        //         // eslint-disable-next-line
-        //         console.log(this.character)
-        //         this.noData = false
-        //     })
-        //     .catch(() => {
-        //         // eslint-disable-next-line
-        //         console.log("FOUND NOTHING")
-        //         this.noData = true
-        //     })
-        // }
     }
 },
 computed: {

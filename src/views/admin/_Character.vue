@@ -610,39 +610,7 @@ created() {
             this.rawCharacteristics = data.characteristics.replace(/<span v-if/g, '<span style="display: none;" v-if').trim("<div>", "</div>")
 
             this.loaded = true
-
-            // console.log(data)
-            // console.log(this.rawDescription)
         }
-
-        //go get data
-        // let route = `http://localhost:4000/characters/${this.editLookup}`;
-        // this.axios.get(route).then(response => {
-        //     // eslint-disable-next-line
-        //     console.log(response.data)
-        //     let data = response.data
-
-        //     //auto-fill data
-        //     Object.keys(data).forEach(key => {
-        //         //handle birthday separately
-        //         if(key == "birthday") {
-        //             this[key] = data[key].slice(0, 10)
-        //         }
-        //         else {
-        //             this[key] = data[key]
-        //         }
-        //     })
-
-
-        //     this.rawShortDescription = data.shortDescription
-        //     this.rawDescription = data.description
-        //     this.rawHistory = data.history
-        //     this.rawCharacteristics = data.characteristics
-
-        //     this.loaded = true
-            
-
-        // });
 
     }
     else this.loaded = true
@@ -766,25 +734,6 @@ methods: {
                 //re-route to character page
                 this.$router.push({name: 'character', params: { name:data.lookup} })
             }})
-
-            // //send to axios
-            // let route = `http://localhost:4000/characters/update/${this.editLookup}`
-            // this.axios.post(route, data)
-            //     .then(() => {
-            //         //add the route
-            //         addRoute({lookup:data.lookup, route:'character'})
-            //         //re-query character for store
-            //         let route = `http://localhost:4000/characters/${data.lookup}`
-            //         this.axios.get(route).then(response => {
-            //             const lookup = this.editLookup
-            //             const data = response.data
-            //             //update store
-            //             store.commit('updateCharacter', {lookup, data})
-
-            //             //re-route to character page
-            //             this.$router.push({name: 'character', params: { name:data.lookup} })
-            //         })
-            //     })
 
         }
 
