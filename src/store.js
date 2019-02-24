@@ -8,6 +8,8 @@ import axios from 'axios'
 
 Vue.use(VueAxios, axios);
 
+const URL = "https://js-v-database.herokuapp.com"
+
 export default new Vuex.Store({
   state: {
     count: 1,
@@ -23,7 +25,7 @@ export default new Vuex.Store({
     addCharacter(state, payload) {
       let { data, callback } = payload
       //send to axios
-      let route = "https://js-v-database.herokuapp.com/characters/add"
+      let route = URL+"/characters/add"
       axios.post(route, data)
           .then(() => {
               
@@ -39,7 +41,7 @@ export default new Vuex.Store({
     updateCharacter(state, payload) {
       const { lookup, data, callback } = payload
         //--update character
-        let route = `https://js-v-database.herokuapp.com/characters/update/${lookup}`
+        let route = `${URL}/characters/update/${lookup}`
         axios.post(route, data)
             .then(() => {
                 // addRoute({lookup:data.lookup, route:'character'})
@@ -63,7 +65,7 @@ export default new Vuex.Store({
     },
     addRoute(state, payload) {
       const { lookup, route } = payload
-      let src = "https://js-v-database.herokuapp.com/routes/add"
+      let src = URL+"/routes/add"
         axios.post(src, {lookup, route})
             .then(() => {
                 // eslint-disable-next-line
@@ -85,10 +87,10 @@ export default new Vuex.Store({
         console.log("LOADING")
 
         //load characters
-        const characters = await axios.get('https://js-v-database.herokuapp.com/characters')
+        const characters = await axios.get(URL+'/characters')
         console.log("Loaded characters")
         commit('initCharacters', characters.data)
-        const routes = await axios.get('https://js-v-database.herokuapp.com/routes')
+        const routes = await axios.get(URL+'/routes')
         console.log("Loaded routes")
         commit('initRoutes', routes.data)
 
