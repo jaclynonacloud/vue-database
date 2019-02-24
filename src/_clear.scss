@@ -1,0 +1,110 @@
+@import 'globals';
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: $accent-colour;
+    text-decoration: none;
+    
+    &:hover {
+        color: mix($main-colour, $accent-colour, 40);
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+p {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+input, select {
+    @extend %quicksand;
+    width: 100%;
+    padding: 4px 6px;
+    box-sizing: border-box;
+    user-select: none;
+    outline: none;
+}
+
+input {
+    &:invalid {
+        border-color: #813434;
+    }
+}
+
+// styled
+blockquote {
+    position: relative;
+    background: mix($light-colour, $dark-colour, 80);
+    width: 85vw;
+    padding: 15px;
+    margin: 5px auto;
+    text-align: center;
+    box-sizing: border-box;
+
+    @media #{$size-large} {
+        width: 60vw;
+    }
+    @media #{$size-wide} {
+        width: 45vw;
+    }
+
+    & + cite {
+        position: relative;
+        top: -15px;
+        background: $dark-colour;
+        color: white;
+        padding: 3px 10px;
+        float: right;
+        box-sizing: border-box;
+
+        @media #{$size-large} {
+            right: 25vw;
+        }
+    }
+}
+
+
+.breadcrumbs {
+    @include display-flex();
+    justify-content: flex-start;
+    align-items: center;
+    width: max-content;
+    width: -moz-max-content;
+
+    &__item {
+        list-style: none;
+
+        position: relative;
+        padding: 3px 15px 3px 0;
+        margin: 0 5px 0 0;
+
+        &:last-child {
+            font-weight: 300;
+        }
+
+        &:not(:last-child) {
+
+            &::after {
+                position: absolute;
+                top: 8px;
+                bottom: 8px;
+                right: 0px;
+                content: '';
+                width: 8px;
+                background: $main-colour;
+                -webkit-clip-path: polygon(calc(100% - 5px) 0%, 100% 50%, calc(100% - 5px) 100%, 0% 100%, 5px 50%, 0% 0%);
+                clip-path: polygon(calc(100% - 5px) 0%, 100% 50%, calc(100% - 5px) 100%, 0% 100%, 5px 50%, 0% 0%);
+            }
+
+        }
+
+    }
+}
