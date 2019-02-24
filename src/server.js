@@ -3,7 +3,7 @@ const app = express()
 const fs = require('fs')
 const path = require('path')
 const bodyParser = require('body-parser')
-const PORT = 4000
+const PORT = process.env.PORT || 4000
 const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./db/config.js')
@@ -18,7 +18,7 @@ app.use(cors())
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
-
+app.use(express.static('./dist'))
 
 // routes
 app.use('/locations', require('./db/location.route'))
