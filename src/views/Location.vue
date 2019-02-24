@@ -174,7 +174,7 @@ created() {
 },
 methods: {
     addLocation(){
-        let uri = 'https://js-v-database.herokuapp.com/locations/add';
+        let uri = `${process.env.MONGOLAB_URI}/locations/add`;
         this.axios.post(uri, {title:"test", body:"test body"}).then(() => {
             this.$router.push({name: 'locations'})
         })

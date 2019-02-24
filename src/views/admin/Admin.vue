@@ -24,12 +24,12 @@ export default {
     },
     created() {
         //go get data
-        let route = 'https://js-v-database.herokuapp.com/characters';
+        let route = `${process.env.MONGOLAB_URI}/characters`
         this.axios.get(route).then(response => {
             // eslint-disable-next-line
             console.log(response.data)
             this.characters = response.data
-        });
+        })
     }
 }
 </script>
