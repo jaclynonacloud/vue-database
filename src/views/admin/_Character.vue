@@ -717,9 +717,11 @@ methods: {
         if(this.editLookup == '' || this.editLookup == null) {
             // eslint-disable-next-line
             console.log("Adding")
-            store.commit('addCharacter', {data, callback:() => {
-                //add the route
-                store.commit('addRoute', {lookup:data.lookup, route:'character'})
+            store.commit('addCharacter', {data, callback:(result) => {
+                if(result == "SUCCESS") {
+                    //add the route
+                    store.commit('addRoute', {lookup:data.lookup, route:'character'})
+                }
                 //re-route to characters page
                 this.$router.push({name: 'characters'})
             }})

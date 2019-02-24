@@ -1,6 +1,6 @@
 <template>
 <div class="characters">
-    <HeaderImage :src="banner" caption="Babel" />
+    <HeaderImage :src="banner" caption="Mysteries" />
 
     <div class="wrapper">
     <h1>Characters</h1>
@@ -41,9 +41,6 @@ created() {
 
     store.dispatch("waitForData")
         .then(() => {
-            // eslint-disable-next-line
-            console.log("Data is LOADED!")
-
             const data = store.state.characters
             if(this.characters != null) {
                 this.characters = data.sort((a, b) => a.firstName > b.firstName ? 1 : a.firstName == b.firstName ? 0 : -1)
@@ -56,10 +53,6 @@ computed: {
         this.characters.forEach(ch => {
             if(ch.thumbnail != null && ch.thumbnail != '') result[ch.lookup] = require(`@/assets/${ch.thumbnail}`)
         })
-        // eslint-disable-next-line
-        console.warn("IMAGE")
-// eslint-disable-next-line
-        console.log(result)
         return result
     },
     banner() {

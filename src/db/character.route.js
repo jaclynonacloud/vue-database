@@ -6,6 +6,14 @@ const path = require('path')
 // Require Post model in our routes module
 let Character = require('./character.model')
 
+// get all characters
+router.route('/').get(function (req, res) {
+    Character.find(function(err, characters){
+        if(err) res.json(err)
+        else res.json(characters)
+    })
+})
+
 // add character
 router.route('/add').post(function (req, res) {
     let character = new Character(req.body)
@@ -16,14 +24,6 @@ router.route('/add').post(function (req, res) {
     character.save()
             .then(() => res.status(200).json({'character': 'location in added successfully'}))
             .catch(() => res.status(400).send("unable to save to database"))
-})
-
-// get all characters
-router.route('/').get(function (req, res) {
-    Character.find(function(err, characters){
-        if(err) res.json(err)
-        else res.json(characters)
-    })
 })
 
 

@@ -16,6 +16,8 @@
 
 
 <script>
+import store from '@/store'
+
 export default {
     data() {
         return {
@@ -23,13 +25,13 @@ export default {
         }
     },
     created() {
-        //go get data
-        let route = `${process.env.MONGOLAB_URI}/characters`
-        this.axios.get(route).then(response => {
-            // eslint-disable-next-line
-            console.log(response.data)
-            this.characters = response.data
+
+        store.dispatch("waitForData")
+        .then(() => {
+            //go get data
+            this.characters = store.state.characters
         })
+        
     }
 }
 </script>

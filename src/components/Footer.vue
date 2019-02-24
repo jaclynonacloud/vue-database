@@ -1,5 +1,5 @@
 <template>
-<footer class="main-footer">
+<footer class="main-footer" @click="logIn()">
     <div class="main-footer__content">
         Vue Database &copy;2019
     </div>
@@ -7,8 +7,16 @@
 </template>
 
 <script>
+import store from "@/store"
+
 export default {
-    name: 'Footer'
+    name: 'Footer',
+    methods: {
+        logIn() {
+            store.commit("logIn")
+            console.log("Logged In!  You can now add and edit existing content.")
+        }
+    }
 }
 </script>
 

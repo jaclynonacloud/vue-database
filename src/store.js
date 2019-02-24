@@ -9,38 +9,50 @@ import axios from 'axios'
 Vue.use(VueAxios, axios);
 
 // const URL = "https://js-v-database.herokuapp.com"
-const URL =  process.env.MONGOLAB_URI
+const URL =  "http://localhost:4000"
+// const URL =  process.env.MONGOLAB_URI || "http://localhost:4000"
+// const URL =  process.env.MONGOLAB_URI || "http://localhost:4000"
 
 export default new Vuex.Store({
   state: {
     count: 1,
     characters: [],
     routes: [],
-    hasLoaded: false
+    hasLoaded: false,
+    loggedIn: false
   },
   mutations: {
+
+    logIn(state) {
+      state.loggedIn = true
+    },
 
     initCharacters(state, payload) {
       state.characters = payload
     },
     addCharacter(state, payload) {
       let { data, callback } = payload
+      if(!state.loggedIn) {
+        callback("NO_LOGIN")
+        return
+      }
+
       //send to axios
-      let route = URL+"/characters/add"
+      let route = `${URL}/characters/add`
       axios.post(route, data)
-          .then(() => {
-              
-            // addRoute({lookup:data.lookup, route:'character'})
-            
+          .then(() => {            
             //--add character to store
             if(state.characters == null) state.characters = []
-            state.characters.push(payload.data)
-            
-            callback()
+            state.characters.push(payload.data)            
+            callback("SUCCESS")
           })
     },
     updateCharacter(state, payload) {
       const { lookup, data, callback } = payload
+      if(!state.loggedIn) {
+        callback("NO LOGIN")
+        return
+      }
         //--update character
         let route = `${URL}/characters/update/${lookup}`
         axios.post(route, data)
@@ -56,7 +68,7 @@ export default new Vuex.Store({
                   console.log("STATE CHARS", state.characters)
                 }
 
-                callback()
+                callback("SUCCESS")
             })
 
     },
@@ -65,8 +77,9 @@ export default new Vuex.Store({
       state.routes = payload
     },
     addRoute(state, payload) {
+      if(!state.loggedIn) return
       const { lookup, route } = payload
-      let src = URL+"/routes/add"
+      let src = `${URL}/routes/add`
         axios.post(src, {lookup, route})
             .then(() => {
                 // eslint-disable-next-line
@@ -88,10 +101,10 @@ export default new Vuex.Store({
         console.log("LOADING")
 
         //load characters
-        const characters = await axios.get(URL+'/characters')
+        const characters = await axios.get(`${URL}/characters`)
         console.log("Loaded characters")
         commit('initCharacters', characters.data)
-        const routes = await axios.get(URL+'/routes')
+        const routes = await axios.get(`${URL}/routes`)
         console.log("Loaded routes")
         commit('initRoutes', routes.data)
 
