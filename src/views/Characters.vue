@@ -42,6 +42,7 @@ created() {
     store.dispatch("waitForData")
         .then(() => {
             const data = store.state.characters
+            console.log("DATA", data)
             if(this.characters != null) {
                 this.characters = data.sort((a, b) => a.firstName > b.firstName ? 1 : a.firstName == b.firstName ? 0 : -1)
             }

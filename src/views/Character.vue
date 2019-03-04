@@ -124,18 +124,6 @@
                         <div v-if="character.spirituality.lookup == '' || character.spirituality.other" v-html="character.spirituality.key"></div>
                         <router-link v-else :to="`encyclopedia#${character.spirituality.other || character.spirituality.lookup}`" v-html="character.spirituality.key"></router-link>
                     </div>
-                    <!-- Sexuality -->
-                    <div class="detail" v-if="character.sexuality">
-                        <div class="title">Sexuality</div>
-                        <div v-if="character.sexuality.lookup == '' || character.sexuality.other" v-html="character.sexuality.key"></div>
-                        <router-link v-else :to="`encyclopedia#${character.sexuality.other || character.sexuality.lookup}`" v-html="character.sexuality.key"></router-link>
-                    </div>
-                    <!-- Sexual Preference -->
-                    <div class="detail">
-                        <div class="title">Sexual Preference</div>
-                        <div v-if="character.sexualPreference.lookup == '' || character.sexualPreference.other" v-html="character.sexualPreference.key"></div>
-                        <router-link v-else :to="`encyclopedia#${character.sexualPreference.other || character.sexualPreference.lookup}`" v-html="character.sexualPreference.key"></router-link>
-                    </div>
                     <!-- Birthday -->
                     <div class="detail">
                         <div class="title">Birthday</div>

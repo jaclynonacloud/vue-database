@@ -263,45 +263,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Sexuality -->
-                <div class="detail">
-                    <div class="title">Sexuality</div>
-                    <input type="hidden" name="sexuality" :value="JSON.stringify(sexuality)">
-                    <div class="detail__content">
-                        <select v-model="sexuality.lookup" @change="updateSelectData($event, 'sexuality')">
-                            <option value="sexualityHeterosexual">Heterosexual</option>
-                            <option value="sexualityHomosexual">Homosexual</option>
-                            <option value="sexualityBisexual">Bisexual</option>
-                            <option value="sexualityPansexual">Pansexual</option>
-                            <option value="sexualityAsexual">Asexual</option>
-                            <option value="">Unknown</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="other" v-if="sexuality.lookup == 'other'">
-                            <input type="text" v-model="sexuality.key" placeholder="Sexuality" required>
-                            <input type="text" v-model="sexuality.other" placeholder="sexualityName">
-                        </div>
-                    </div>
-                </div>
-                <!-- Sexual Preference -->
-                <div class="detail">
-                    <div class="title">Sexual Preference</div>
-                    <input type="hidden" name="sexualPreference" :value="JSON.stringify(sexualPreference)">
-                    <div class="detail__content">
-                        <select v-model="sexualPreference.lookup" @change="updateSelectData($event, 'sexualPreference')">
-                            <option value="">None</option>
-                            <option value="sexualPrefMale">Males</option>
-                            <option value="sexualPrefFemale">Females</option>
-                            <option value="sexualPrefBoth">Both</option>
-                            <option value="">Unknown</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="other" v-if="sexualPreference.lookup == 'other'">
-                            <input type="text" v-model="sexualPreference.key" placeholder="Sexual Preference" required>
-                            <input type="text" v-model="sexualPreference.other" placeholder="sexualPrefName">
-                        </div>
-                    </div>
-                </div>
                 <!-- Birthday -->
                 <div class="detail">
                     <div class="title">Birthday</div>
