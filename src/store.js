@@ -8,9 +8,9 @@ import axios from 'axios'
 
 Vue.use(VueAxios, axios);
 
-const URL = `https://js-v-database.herokuapp.com/#/:${process.env.PORT || 4000}`
+// const URL = `https://js-v-database.herokuapp.com/#/:${process.env.PORT || 4000}`
 // const URL = `https://js-v-database.herokuapp.com`
-// const URL = "http://localhost:4000"
+const URL = process.env.API_URL || "http://localhost:4000/api"
 
 export default new Vuex.Store({
   state: {

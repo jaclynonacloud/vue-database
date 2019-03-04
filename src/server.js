@@ -21,13 +21,13 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 app.use(express.static('./dist'))
 
 // routes
-app.use('/locations', require('./db/location.route'))
-app.use('/characters', require('./db/character.route'))
-app.use('/routes', require('./db/route.route'))
+app.use('/api/locations', require('./db/location.route'))
+app.use('/api/characters', require('./db/character.route'))
+app.use('/api/routes', require('./db/route.route'))
 
 
 //image posting { image, directory, name }
-app.post('/upload', (req, res) => {
+app.post('/api/upload', (req, res) => {
     //get the image data
     const { image, directory, name } = req.body
     //save to local directory

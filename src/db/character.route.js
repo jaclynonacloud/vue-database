@@ -9,8 +9,7 @@ let Character = require('./character.model')
 // get all characters
 router.route('/').get(function (req, res) {
     Character.find(function(err, characters){
-        // if(err) res.json(err)
-        if(err) res.json("NO MANG: " + err)
+        if(err) res.json(err)
         else res.json(characters)
     })
 })
