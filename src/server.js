@@ -37,5 +37,5 @@ app.post('/upload', (req, res) => {
 })
 
 app.listen(PORT, function(){
-    console.log('Server is running on Port:',PORT)
+    console.log('Server is running on Port:', PORT)
 })
