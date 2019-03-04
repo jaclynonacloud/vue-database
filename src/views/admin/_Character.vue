@@ -252,9 +252,6 @@
                     <input type="hidden" name="spirituality" :value="JSON.stringify(spirituality)">
                     <div class="detail__content">
                         <select v-model="spirituality.lookup" @change="updateSelectData($event, 'spirituality')">
-                            <option value="spiritualitySolaris">Solaris</option>
-                            <option value="spiritualityLunabelle">Lunabelle</option>
-                            <option value="spiritualityNightwalker">Nightwalker</option>
                             <option value="spiritualityMix">Mix</option>
                             <option value="">None</option>
                             <option value="">Unknown</option>
@@ -528,7 +525,7 @@ data() {
         role: {key:'Protagonist', lookup:'roleProtagonist', other:'', route:'encyclopedia'},
         height: `5'5"`,
         weight: '120 lbs',
-        spirituality: {key:'Solaris', lookup:'spiritualitySolaris', other:'', route:'encyclopedia'},
+        spirituality: {key:'', lookup:'', other:'', route:'encyclopedia'},
         sexuality: {key:'Heterosexual', lookup:'sexualityHeterosexual', other:'', route:'encyclopedia'},
         sexualPreference: {key:'None', lookup:'', other:'', route:'encyclopedia'},
         birthday: '2000-01-01',
