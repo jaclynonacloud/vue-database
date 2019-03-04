@@ -8,7 +8,8 @@ import axios from 'axios'
 
 Vue.use(VueAxios, axios);
 
-const URL = `https://js-v-database.herokuapp.com/#/:${process.env.PORT || 4000}`
+// const URL = `https://js-v-database.herokuapp.com/#/:${process.env.PORT || 4000}`
+const URL = `https://js-v-database.herokuapp.com`
 // const URL = "http://localhost:4000"
 
 export default new Vuex.Store({
@@ -99,10 +100,10 @@ export default new Vuex.Store({
         console.log("LOADING")
 
         //load characters
-        const characters = await axios.get(`${URL}/characters`)
+        const characters = await axios.get(`/characters`)
         console.log("Loaded characters")
         commit('initCharacters', characters.data)
-        const routes = await axios.get(`${URL}/routes`)
+        const routes = await axios.get(`/routes`)
         console.log("Loaded routes")
         commit('initRoutes', routes.data)
 
