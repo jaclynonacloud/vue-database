@@ -8,11 +8,11 @@ import axios from 'axios'
 
 Vue.use(VueAxios, axios);
 
-// const URL = "https://js-v-database.herokuapp.com"
+const URL = "https://js-v-database.herokuapp.com"
 // const URL =  "http://localhost:4000"
 // const URL =  process.env.MONGOLAB_URI || "http://localhost:4000"
 
-const URL =  process.env.MONGOLAB_URI || "http://localhost:4000"
+// const URL =  process.env.MONGOLAB_URI || "http://localhost:4000"
 
 export default new Vuex.Store({
   state: {
