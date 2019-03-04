@@ -100,10 +100,10 @@ export default new Vuex.Store({
         console.log("LOADING")
 
         //load characters
-        const characters = await axios.get(`/characters`)
+        const characters = await axios.get(`${URL}/characters`)
         console.log("Loaded characters")
         commit('initCharacters', characters.data)
-        const routes = await axios.get(`/routes`)
+        const routes = await axios.get(`${URL}/routes`)
         console.log("Loaded routes")
         commit('initRoutes', routes.data)
 
