@@ -24,7 +24,7 @@
                 </div>
                 <div class="header">
                     <div class="header__title" v-html="fullName"></div>
-                    <router-link :to="{ name:'admin-character-edit', params:{name:character.lookup} }" v-if="character.lookup">Edit</router-link>
+                    <router-link :to="{ name:'admin-character-edit', params:{name:character.lookup} }" v-if="character.lookup && loggedIn">Edit</router-link>
                     <div class="side">
                         <div class="header__maiden" v-if="character.maidenName">neé <span v-html="character.maidenName"></span></div>
                         <div class="header__pronunction" v-if="character.pronunciation">pronounced: <i v-html="character.pronunciation"></i></div>
@@ -424,7 +424,8 @@ computed: {
     },
     cStore() {
         return store
-    }
+    },
+    loggedIn() { return store.state.loggedIn }
 }
 }
 </script>
