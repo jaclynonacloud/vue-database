@@ -4,4 +4,4 @@
  * (c) 2018 Alex J <alexjovermorales@gmail.com>
  * @license MIT
  */var s=function(t){return Object.keys(t.data&&t.data()||{}).concat(Object.keys(t.props||{}))},i=function(t,a,e){if(!a.hasOwnProperty(e)){var s=Object.getOwnPropertyDescriptor(t,e);Object.defineProperty(a,e,s)}},r=function(t){var a={};return t.forEach(function(t){t&&Object.getOwnPropertyNames(t).forEach(function(e){return i(t,a,e)})}),a},c=function(t,a){var e={};return a.forEach(function(a){return i(t,e,a)}),e},n={props:{template:String},render:function(t){if(this.template){var a=this.$parent,e=a.$data,i=a.$props,n=a.$options,l=Object.keys(n.methods||{}),o=s(n).concat(l),u=c(this.$parent,l),d=r([e,i,u]),v={template:this.template||"<div></div>",props:o,computed:n.computed,components:n.components};return t(v,{props:d})}}};a["a"]=n},f653:function(t,a,e){"use strict";var s=e("3692"),i=e.n(s);i.a}}]);
-//# sourceMappingURL=chunk-0c25d0b2.0b1c8472.js.map
+//# sourceMappingURL=chunk-0c25d0b2.6a6f572c.js.map
