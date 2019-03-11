@@ -26,7 +26,7 @@
           <div class="nav__item" :class="{'is-active': subIsActive('/news')}">
             <router-link to="/news">News</router-link>
           </div>
-          <div class="nav__item" :class="{'is-active': subIsActive('/admin')}">
+          <div class="nav__item" :class="{'is-active': subIsActive('/admin')}" v-if="loggedIn">
             <router-link to="/admin">Admin</router-link>
           </div>
         </div>
@@ -44,6 +44,7 @@
 // @ is an alias to /src
 import Footer from '@/components/Footer.vue'
 import { loadData } from '@/main'
+import store from '@/store'
 
 export default {
   name: 'vue-app',
@@ -74,6 +75,9 @@ export default {
       })
     }
 
+  },
+  computed: {
+    loggedIn() { return store.state.loggedIn }
   }
 }
 </script>
