@@ -1,3 +1,3 @@
 module.exports = {
-    DB: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/vdatabase'
+    DB: process.env.MONGOLAB_URI || "mongodb://localhost:27017/vdatabase"
 }

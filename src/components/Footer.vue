@@ -14,6 +14,7 @@ export default {
     methods: {
         logIn() {
             store.commit("logIn")
+            // eslint-disable-next-line
             console.log("Logged In!  You can now add and edit existing content.")
         }
     }
