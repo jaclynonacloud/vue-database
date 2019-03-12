@@ -12,6 +12,9 @@
     "main": "node src/server.js",
     "postinstall": "yarn run build"
   },
+  "engines": {
+    "yarn": "1.12.1"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",

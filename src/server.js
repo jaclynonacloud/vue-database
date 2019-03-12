@@ -8,6 +8,8 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./db/config.js')
 
+require('dotenv').load()
+
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
@@ -21,12 +23,9 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 app.use(express.static('./dist'))
 
 // routes
-app.use(`${config.BASE_URL}/locations`, require('./db/location.route'))
-app.use(`${config.BASE_URL}/characters`, require('./db/character.route'))
-app.use(`${config.BASE_URL}/routes`, require('./db/route.route'))
-// app.use('/api/locations', require('./db/location.route'))
-// app.use('/api/characters', require('./db/character.route'))
-// app.use('/api/routes', require('./db/route.route'))
+app.use(`'/api/locations'`, require('./db/location.route'))
+app.use('/api/characters', require('./db/character.route'))
+app.use('/api/routes', require('./db/route.route'))
 
 
 //image posting { image, directory, name }
