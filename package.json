@@ -9,7 +9,7 @@
     "nodemon": "nodemon src/server.js",
     "mongo": "mongod --dbpath c:/data/db",
     "start": "node src/server.js",
-    "main": "node src/server.js",
+    "main": "node server.js",
     "postinstall": "yarn run build"
   },
   "dependencies": {
