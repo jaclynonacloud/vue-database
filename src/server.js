@@ -8,20 +8,22 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./db/config.js')
 
+require('dotenv').load()
+
+app.use(cors())
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
+
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
     err => { console.log('Can not connect to the database'+ err)}
 );
 
-app.use(cors())
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
-
 app.use(express.static('./dist'))
 
 // routes
-app.use('/api/locations', require('./db/location.route'))
+app.use(`'/api/locations'`, require('./db/location.route'))
 app.use('/api/characters', require('./db/character.route'))
 app.use('/api/routes', require('./db/route.route'))
 

@@ -7,9 +7,13 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "nodemon": "nodemon src/server.js",
+    "mongo": "mongod --dbpath c:/data/db",
     "start": "node src/server.js",
     "main": "node src/server.js",
     "postinstall": "yarn run build"
+  },
+  "engines": {
+    "yarn": "1.12.1"
   },
   "dependencies": {
     "axios": "^0.18.0",
