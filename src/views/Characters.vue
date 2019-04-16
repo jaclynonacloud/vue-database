@@ -39,9 +39,9 @@ data() {
 },
 created() {
 
-    store.dispatch("waitForData")
+    this.$store.dispatch("waitForData")
         .then(() => {
-            const data = store.state.characters
+            const data = this.$store.state.characters
             // eslint-disable-next-line
             console.log("DATA", data)
             if(this.characters != null) {
